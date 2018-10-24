@@ -44,7 +44,7 @@ def alarm_countdown():
         elif timer == 0:
             ledRed.on()
             ledYellow.off()
-            get("192.168.42.2:8000")
+            get("http://192.168.42.2:8000")
             break
         else:
             timer -= 1
