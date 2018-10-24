@@ -1,6 +1,5 @@
 import smtplib
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import socketserver
 
 
 class HTTPServerRequestHandler(BaseHTTPRequestHandler):
@@ -27,7 +26,7 @@ class HTTPServerRequestHandler(BaseHTTPRequestHandler):
 
 
 def run():
-    with socketserver.TCPServer(("", 8000), HTTPServerRequestHandler) as httpd:
+        httpd = HTTPServer(("192.168.42.2", 8000), HTTPServerRequestHandler)
         print("serving at port", 8000)
         httpd.serve_forever()
 
